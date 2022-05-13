@@ -1,4 +1,4 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import type { GetStaticPathsContext, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Layout from "../components/Layout";
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
@@ -6,7 +6,7 @@ import Repositories from "../components/RepositoriesContainer";
 import { IRepository } from "../interfaces";
 
 //  Props before rendering
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPathsContext) => {
   return {
     props: {
       profiles: process.env.PROFILES?.split(","),
