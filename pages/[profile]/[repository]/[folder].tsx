@@ -4,6 +4,7 @@ import {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import File from "../../../components/File";
 import Layout from "../../../components/Layout";
@@ -44,12 +45,29 @@ const Folder: NextPage<FolderProps> = ({
   contents,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [load, setLoad] = useState(false);
+  const router = useRouter();
   return (
     <Layout title={`Folder`}>
       <div className="container w-1/2">
         <section>
           <h2 className="text-2xl font-[700] text-left mb-1">Content</h2>
           {load && <p>Loading...</p>}
+          {!load && (
+            <div onClick={() => router.back()}>
+              <File
+                file={{
+                  name: "..",
+                  path: "..",
+                  sha: "",
+                  type: "",
+                  gitUrl: "",
+                  size: 0,
+                }}
+                activeProfile={activeProfile}
+                repo={repoName}
+              />
+            </div>
+          )}
           {!load &&
             contents
               .sort(dynamicSort("type", 1))
