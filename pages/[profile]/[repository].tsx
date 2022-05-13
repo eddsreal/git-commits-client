@@ -121,7 +121,6 @@ const Repository: NextPage<RepoProps> = ({
                   file={file}
                   activeProfile={activeProfile}
                   repo={repoName}
-                  commits={commits}
                 />
               ))
           }
@@ -134,7 +133,6 @@ const Repository: NextPage<RepoProps> = ({
                   file={file}
                   activeProfile={activeProfile}
                   repo={repoName}
-                  commits={commits}
                 />
               ))
           }

@@ -1,5 +1,5 @@
 import FolderIcon from "../assets/FolderIcon";
-import { ICommit, IFile, IRepository } from "../interfaces";
+import { IFile } from "../interfaces";
 import Link from "next/link";
 import FileIcon from "../assets/FileIcon";
 
@@ -7,10 +7,9 @@ type Props = {
   file: IFile;
   activeProfile: string | string[] | undefined;
   repo: string | string[] | undefined;
-  commits: ICommit[];
 };
 
-const File: React.FC<Props> = ({ file, activeProfile, repo, commits }) => {
+const File: React.FC<Props> = ({ file, activeProfile, repo }) => {
   return (
     <Link
       key={file.sha}
