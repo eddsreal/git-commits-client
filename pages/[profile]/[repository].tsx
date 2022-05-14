@@ -85,17 +85,18 @@ const Repository: NextPage<RepoProps> = ({
 
   return (
     <Layout title={`Reporsitory ${params?.repository}`}>
-      <div className="container w-1/2">
+      <div className="container w-11/12 lg:w-1/2">
         <header>
-          <h1 className="text-5xl font-[700] mt-8 text-left">
-            {params?.repository}
+          <h1 className="text-3xl text-center lg:text-left lg:text-5xl font-[700] mt-8 mb-4 text-primary">
+            Repository: {params?.repository}
           </h1>
         </header>
         <section>
-          <h2 className="text-2xl font-[700] text-left mb-1">Commits</h2>
+          <h2 className="text-2xl font-[700] text-left mb-1 text-primary">Commits</h2>
+          <p className="text-2 text-left mb-1 italic">Navigate beetween commits to check it&apos;s progress</p>
           <select
             name="commits"
-            className="w-2/4 p-3 border-2 border-sky-500 bg-white border-dashed"
+            className="w-11/12 lg:w-2/4 p-3 border-2 border-primary-100 active:border-primary focus:border-primary bg-white border-dashed"
             onChange={handleSelectChange}
           >
             <option value="">Head</option>
@@ -110,7 +111,8 @@ const Repository: NextPage<RepoProps> = ({
           </select>
         </section>
         <section>
-          <h2 className="text-2xl font-[700] text-left mb-1">Content</h2>
+          <h2 className="text-2xl font-[700] text-left mb-1 text-primary mt-4">Files</h2>
+          <p className="text-2 text-left mb-1 italic">You can click on all folders/files to get in to them.</p>
           {load && <p>Loading...</p>}
           {!selectedCommit && !load &&
             lastCommit
